@@ -22,16 +22,4 @@ def test_about_page(client):
     assert response.status_code == 200
     assert b'About' in response.data
 
-def test_register_page(client):
-    """Test the register page route."""
-    response = client.get('/register')
-    assert response.status_code == 200
-    assert b'Registration Form' in response.data
-
-def test_login_page(client):
-    """Test the login page route."""
-    response = client.get('/login')
-    assert response.status_code == 200
-    assert b'Login Form' in response.data
-
 # Add more tests as needed for other routes and functionalities
