@@ -9,6 +9,12 @@ dummy = [
         'title': 'TukTuk Blog',
         'content': 'First ever blog of TukTuk',
         'posted_date': '15 june, 2024'
+    },
+    {
+        'author': 'Ravikesh Kumar',
+        'title': 'Food Blog post',
+        'content': 'First ever food blog by Ravikesh',
+        'posted_date': '15 june, 2024'
     }
 ]
 
