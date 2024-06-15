@@ -1,7 +1,7 @@
 # test_check.py
 
 import pytest
-from app import app
+from flaskBlog import app
 
 @pytest.fixture
 def client():
