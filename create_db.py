@@ -1,5 +1,5 @@
 from flaskBlog import app, db
-from flaskBlog import User, Post  # Import your models
+from flaskBlog.models import User
 
 def create_tables():
     with app.app_context():
