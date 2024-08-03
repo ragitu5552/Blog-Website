@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="static/profile_pics/default.jpg">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ current_user.username }}</a>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
+              <div class="container mt-4">
+                <div class="button-container">
+                    <!-- Anchor tag -->
+                    <a href="{{ url_for('update_post', post_id=post.id) }}" class="btn btn-secondary btn-sm m-1">Update</a>
+                    <!-- Form -->
+                    <form method="POST" action="{{ url_for('delete_post', post_id=post.id) }}">
+                        <button type="submit" class="btn btn-danger btn-sm m-1">Delete</button>
+                    </form>
+                </div>
+            </div>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+{% endblock content %}

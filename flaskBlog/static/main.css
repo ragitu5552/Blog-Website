@@ -78,3 +78,19 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+
+  .article-container {
+    position: relative;
+    padding: 20px; /* Adjust padding as needed */
+  }
+  .button-container {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+}
+.button-container form {
+    margin-left: 10px; /* Adjust margin between elements */
+}
+.button-container a, .button-container form {
+    margin-right: 5px; /* Adjust margin between elements */
+}
+  
