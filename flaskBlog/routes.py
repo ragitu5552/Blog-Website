@@ -12,7 +12,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 def home():
     with app.app_context():
         posts = Post.query.all()
-    return render_template('home.html', title='Home', posts=posts)
+        users = {user.id:user for user in User.query.all()}
+    return render_template('home.html', title='Home', posts=posts, users=users)
 
 
 @app.route("/about")
@@ -92,20 +93,21 @@ def new_post():
 def post(post_id):
     with app.app_context():
         post = Post.query.get_or_404(post_id)
-        return render_template('post.html', title=post.title, post = post, post_id=post_id)
+        user = User.query.filter_by(id=post_id).first()
+        return render_template('post.html', title=post.title, post = post, post_id=post_id, user=user)
 
 @app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
     with app.app_context():
         post = Post.query.get_or_404(post_id)
-        user = post.author
+        user = User.query.filter_by(id=post.user_id).first()
         if user != current_user:
             abort(403)
         form = PostForm()
         if form.validate_on_submit():
             with app.app_context():
-                post = Post.query.filter_by(id=1).first()
+                post = Post.query.filter_by(id=post_id).first()
                 post.title = form.title.data
                 post.content = form.content.data
                 db.session.commit()

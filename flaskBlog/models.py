@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
     
-    #Loadin User by user_id
+    #Loadin User by user_i
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}', '{self.password}')"

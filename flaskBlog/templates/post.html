@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
         <article class="media content-section">
-          <img class="rounded-circle article-img" src="static/profile_pics/default.jpg">
+          <img class="rounded-circle article-img" src="/static/profile_pics/default.jpg">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ current_user.username }}</a>
+              <a class="mr-2" href="#">{{ user.username }}</a>
               <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
               <div class="container mt-4">
                 <div class="button-container">
